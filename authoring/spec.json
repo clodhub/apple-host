@@ -1,6 +1,6 @@
 {
   "name": "apple-host",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "title": "Apple host",
   "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
   "facilities": [
@@ -72,7 +72,8 @@
     "xcodegen": "2.46.0"
   },
   "platforms": [
-    "apple"
+    "apple",
+    "server"
   ],
   "suites": [
     {
@@ -132,5 +133,163 @@
     "updates": "Patch updates replace the owned files; regenerate the project after each update. Removal deletes the owned sources and the generated project folder entries; the application's own sources are untouched. No application data is held."
   },
   "agentInstructions": "Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
-  "developerInstructions": "Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test."
+  "developerInstructions": "Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test.",
+  "classes": [
+    {
+      "reference": {
+        "name": "ourapps-ae/apple-host-class",
+        "version": "1.0.0",
+        "digest": "e8aac7a33367a6cfe07d650ca06dc2977023df0d722c906eeb9c0a8c182acdbb"
+      },
+      "descriptor": {
+        "format": 1,
+        "name": "ourapps-ae/apple-host-class",
+        "version": "1.0.0",
+        "provides": [
+          {
+            "type": "ae/apple-shell",
+            "version": "1.0.0",
+            "path": "classes/apple-host-class/apple-shell.json",
+            "modules": {
+              "server": [
+                "server/index.ts"
+              ],
+              "ios": [
+                "apple/Sources"
+              ],
+              "macos": [
+                "apple/Sources"
+              ],
+              "tvos": [
+                "apple/Sources"
+              ]
+            }
+          }
+        ],
+        "requires": [
+          {
+            "type": "ae/theme",
+            "version": "1.0.0"
+          }
+        ],
+        "settings": {
+          "type": "object",
+          "properties": {
+            "bundleIdentifier": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9]*(\\.[a-z][a-z0-9]*)+$"
+            },
+            "displayName": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9 -]{0,63}$"
+            },
+            "scheme": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}$"
+            },
+            "targets": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9 -]{0,63}$"
+            }
+          },
+          "required": [
+            "bundleIdentifier",
+            "displayName",
+            "scheme",
+            "targets"
+          ],
+          "additionalProperties": false
+        },
+        "inventory": [
+          {
+            "path": "classes/apple-host-class/apple-shell.json",
+            "digest": "4dc8aea13aa9724e898fc6befa790578b84f3ff8cd4e90a0dc5459895ace3987"
+          },
+          {
+            "path": "classes/apple-host-class/check.mjs",
+            "digest": "e95efc1eb01a179d90575162da7748af44be905f0b971ad328b2c80681bf5716"
+          },
+          {
+            "path": "classes/apple-host-class/runtime.mjs",
+            "digest": "7440f3891614c423f74668cb5a2445fea58bbfa4d7c740c8e8a855d1d9300d43"
+          }
+        ],
+        "verification": [
+          {
+            "id": "shared",
+            "root": "package",
+            "argv": [
+              "node",
+              "classes/apple-host-class/check.mjs"
+            ],
+            "cwd": ".",
+            "prepare": [],
+            "tools": {
+              "node": "26.5"
+            },
+            "fixtures": [
+              "classes/apple-host-class/check.mjs"
+            ],
+            "locks": [],
+            "network": false,
+            "timeoutSeconds": 60,
+            "expectedExit": 0,
+            "scope": "required-local",
+            "requirements": []
+          }
+        ]
+      }
+    }
+  ],
+  "implements": [
+    {
+      "name": "ourapps-ae/apple-host-class",
+      "version": "1.0.0",
+      "digest": "e8aac7a33367a6cfe07d650ca06dc2977023df0d722c906eeb9c0a8c182acdbb"
+    }
+  ],
+  "upstream": [],
+  "compatibility": {
+    "runtimes": {
+      "node": ">=26.5.0 <27.0.0",
+      "swift": "=6.4.2",
+      "ios": ">=17.0.0",
+      "macos": ">=14.0.0",
+      "tvos": ">=17.0.0"
+    },
+    "frameworks": {},
+    "dependencies": [],
+    "styles": {
+      "scope": "none",
+      "namespaces": [],
+      "conflicts": []
+    }
+  },
+  "maintenance": {
+    "owners": [
+      "Level N Ltd"
+    ],
+    "contact": "https://github.com/ourapps-ae/apple-host/issues",
+    "repository": "https://github.com/ourapps-ae/apple-host",
+    "updates": {
+      "source": "https://github.com/ourapps-ae/apple-host/releases",
+      "strategy": "manual"
+    }
+  },
+  "supportedPlatforms": [
+    "ios",
+    "macos",
+    "server",
+    "tvos"
+  ],
+  "licence": "Apache-2.0",
+  "licenceFile": "LICENCE",
+  "noticeFile": "NOTICE",
+  "templates": [
+    "implementation/apple/settings.ts"
+  ],
+  "modules": {
+    "server": "server/index.ts",
+    "apple": "apple/Sources"
+  }
 }
