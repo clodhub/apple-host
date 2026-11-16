@@ -1,5 +1,7 @@
 """Platform checks on a macOS machine: `apple` compiles the host sources with the platform checks; `project` generates the Xcode project from the rendered files."""
+import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -23,7 +25,11 @@ elif mode == ["project"]:
         for folder in ("ios/Demo/Sources", "ios/Demo/Resources", "components/apple-host/apple/Sources", "components/other/apple/Sources", "ios/out"):
             (base / folder).mkdir(parents=True, exist_ok=True)
         (work / "Demo/Sources/Stub.swift").write_text("import SwiftUI\n")
-        subprocess.run(["xcodegen", "generate", "--spec", "project.yml", "--project", "out"], cwd=work, check=True)
+        # XcodeGen finds its setting presets beside its real executable, not beside a link to it, and stops without a user
+        # name, which a credential-free check environment does not set.
+        xcodegen = os.path.realpath(shutil.which("xcodegen") or "xcodegen")
+        subprocess.run([xcodegen, "generate", "--spec", "project.yml", "--project", "out"], cwd=work, check=True,
+                       env={**os.environ, "USER": os.environ.get("USER") or "check"})
         for plist in ("Demo/Info.plist", "DemoTV/Info.plist", "Demo/MacCatalyst.entitlements", "ExportOptions-ios.plist", "ExportOptions-macos.plist", "ExportOptions-tvos.plist"):
             subprocess.run(["plutil", "-lint", str(work / plist)], check=True)
         project = (work / "out/Demo.xcodeproj/project.pbxproj").read_text()
