@@ -47,7 +47,7 @@ The installer collects these settings. `targets` takes the recipe's client targe
 - `implementation/apple/templates/tv-target.yml.template` -> `components/apple-host/apple/templates/tv-target.yml.template`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5, python3 3.12, swiftc 6.4, xcodegen 2.46. Licence wording remains deferred.
+`tools.lock.json` pins verification tools: node 26.5, python3 3.12, swiftc 6.4, xcrun 72, xcodegen 2.46. Licence wording remains deferred.
 
 ## Provided interfaces
 - `interfaces/apple-shell.json` defines `apple-shell` (ae/apple-shell) version 1.0.0 as an OpenRPC 1.3.2 document. Methods tagged `typescript` are the build-time functions of `apple/render.ts` (`renderApple`, `writeApple`, `validateSettings`, `parseTargets`, `parseDeploymentTargets`); methods tagged `swift` are the public Swift API (`ShellConfiguration.init`, `ApplicationShell.init`, `Platform.family`, `Platform.traits`, `PlatformTraits.traits(for:)`, `ShellSettings.current`, `ShellSettings.init` and the `View.shell...` modifiers). Parameters and results are JSON Schema 2020-12; Swift values with no JSON form (Color, View, closures) are described by name. `SettingsError` is listed where a setting breaks its grammar.
@@ -68,7 +68,7 @@ No service is deployed. Building needs a Mac with Xcode and XcodeGen; signing an
 `node --test tests/render.test.ts` renders the fixture application for every target combination and checks the project, property lists, export options and asset skeleton. `python3 tests/native.py apple` compiles the Swift host sources with swiftc 6.4 against the fixture traits table and settings cases, and type-checks the example entry point. `python3 tests/native.py project` renders the fixture into a project folder, runs XcodeGen 2.46 on it and checks the generated Xcode project and the property lists with plutil. The project was not built with xcodebuild, and nothing ran on a device or simulator.
 
 - `node --test tests/render.test.ts` (render, required-local; tools: node 26.5)
-- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4)
+- `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4, xcrun 72)
 - `python3 tests/native.py project` (project, platform; tools: python3 3.12, node 26.5, xcodegen 2.46)
 
 ## Scenarios and presentation
