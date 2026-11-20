@@ -1,6 +1,6 @@
 {
   "name": "apple-host",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "title": "Apple host",
   "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
   "facilities": [
@@ -139,13 +139,17 @@
     {
       "reference": {
         "name": "ourapps-ae/apple-host-class",
-        "version": "1.0.0",
-        "digest": "e8aac7a33367a6cfe07d650ca06dc2977023df0d722c906eeb9c0a8c182acdbb"
+        "version": "1.1.0",
+        "digest": "32f8b30ff7b0f0b5d73b600d8556eb790c9acd2bd7da1050fec6da8524eeaaf3"
       },
       "descriptor": {
-        "format": 1,
+        "format": 2,
         "name": "ourapps-ae/apple-host-class",
-        "version": "1.0.0",
+        "version": "1.1.0",
+        "title": "Apple host",
+        "summary": "An Xcode project for iPhone, iPad, Mac and Apple TV rendered from the application's files",
+        "category": "devices-and-hosts/mobile",
+        "presentation": "none",
         "provides": [
           {
             "type": "ae/apple-shell",
@@ -245,8 +249,8 @@
   "implements": [
     {
       "name": "ourapps-ae/apple-host-class",
-      "version": "1.0.0",
-      "digest": "e8aac7a33367a6cfe07d650ca06dc2977023df0d722c906eeb9c0a8c182acdbb"
+      "version": "1.1.0",
+      "digest": "32f8b30ff7b0f0b5d73b600d8556eb790c9acd2bd7da1050fec6da8524eeaaf3"
     }
   ],
   "upstream": [],
@@ -422,5 +426,11 @@
         "manual": null
       }
     ]
-  }
+  },
+  "release": {
+    "channel": "features",
+    "fixes": []
+  },
+  "images": [],
+  "vulnerabilityWaivers": []
 }
