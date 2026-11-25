@@ -7,12 +7,12 @@
   "focus": "component",
   "definitions": [
     {
-      "id": "ourapps-ae.apple-host",
+      "id": "clodhub.apple-host",
       "name": "Apple host",
       "kind": "component",
       "status": "example",
-      "package": "ourapps-ae/apple-host",
-      "version": "0.11.0",
+      "package": "clodhub/apple-host",
+      "version": "0.12.0",
       "ports": [
         {
           "id": "theme",
@@ -106,7 +106,7 @@
     {
       "id": "component",
       "name": "Apple host",
-      "definition": "ourapps-ae.apple-host",
+      "definition": "clodhub.apple-host",
       "configuration": {
         "bundleIdentifier": "example",
         "displayName": "example",

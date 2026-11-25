@@ -1,6 +1,6 @@
 {
   "name": "apple-host",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "title": "Apple host",
   "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
   "facilities": [
@@ -66,9 +66,10 @@
   ],
   "dependencies": [],
   "tools": {
-    "node": "26.5.0",
-    "python3": "3.12.8",
-    "swiftc": "6.4.2",
+    "node": "26.5",
+    "python3": "3.12",
+    "swiftc": "6.4",
+    "xcrun": "72",
     "xcodegen": "2.46.0"
   },
   "platforms": [
@@ -84,7 +85,7 @@
         "tests/render.test.ts"
       ],
       "tools": {
-        "node": "26.5.0"
+        "node": "26.5"
       }
     },
     {
@@ -95,8 +96,8 @@
         "apple"
       ],
       "tools": {
-        "python3": "3.12.8",
-        "swiftc": "6.4.2",
+        "python3": "3.12",
+        "swiftc": "6.4",
         "xcrun": "72"
       },
       "scope": "platform",
@@ -113,9 +114,9 @@
         "project"
       ],
       "tools": {
-        "python3": "3.12.8",
-        "node": "26.5.0",
-        "xcodegen": "2.46.0"
+        "node": "26.5",
+        "python3": "3.12",
+        "xcodegen": "2.46"
       },
       "scope": "platform",
       "fixtures": [
@@ -133,18 +134,18 @@
     "scenarios": "iPhone and iPad share one target and run portrait or all orientations; Mac runs the same target as Mac Catalyst with the sandbox entitlements and an upright board; Apple TV is a second target with focus navigation, the remote Menu button as exit command and no corner help control.",
     "updates": "Patch updates replace the owned files; regenerate the project after each update. Removal deletes the owned sources and the generated project folder entries; the application's own sources are untouched. No application data is held."
   },
-  "agentInstructions": "Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
+  "agentInstructions": "Select `clodhub/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
   "developerInstructions": "Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test.",
   "classes": [
     {
       "reference": {
-        "name": "ourapps-ae/apple-host-class",
+        "name": "clodhub/apple-host-class",
         "version": "1.1.0",
-        "digest": "32f8b30ff7b0f0b5d73b600d8556eb790c9acd2bd7da1050fec6da8524eeaaf3"
+        "digest": "b94a15c06a6e30975f3afb94fd81af662fc5d61b62845faf8f9b89c3a2cd8a97"
       },
       "descriptor": {
         "format": 2,
-        "name": "ourapps-ae/apple-host-class",
+        "name": "clodhub/apple-host-class",
         "version": "1.1.0",
         "title": "Apple host",
         "summary": "An Xcode project for iPhone, iPad, Mac and Apple TV rendered from the application's files",
@@ -208,7 +209,7 @@
         "inventory": [
           {
             "path": "classes/apple-host-class/apple-shell.json",
-            "digest": "4dc8aea13aa9724e898fc6befa790578b84f3ff8cd4e90a0dc5459895ace3987"
+            "digest": "5096cd921d47558c170c0cf0febcafaf1ec913bb4bf576e394600a04d6ab6d41"
           },
           {
             "path": "classes/apple-host-class/check.mjs",
@@ -248,9 +249,9 @@
   ],
   "implements": [
     {
-      "name": "ourapps-ae/apple-host-class",
+      "name": "clodhub/apple-host-class",
       "version": "1.1.0",
-      "digest": "32f8b30ff7b0f0b5d73b600d8556eb790c9acd2bd7da1050fec6da8524eeaaf3"
+      "digest": "b94a15c06a6e30975f3afb94fd81af662fc5d61b62845faf8f9b89c3a2cd8a97"
     }
   ],
   "upstream": [],
@@ -274,10 +275,10 @@
     "owners": [
       "Level N Ltd"
     ],
-    "contact": "https://github.com/ourapps-ae/apple-host/issues",
-    "repository": "https://github.com/ourapps-ae/apple-host",
+    "contact": "https://github.com/clodhub/apple-host/issues",
+    "repository": "https://github.com/clodhub/apple-host",
     "updates": {
-      "source": "https://github.com/ourapps-ae/apple-host/releases",
+      "source": "https://github.com/clodhub/apple-host/releases",
       "strategy": "manual"
     }
   },

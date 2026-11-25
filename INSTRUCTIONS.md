@@ -1,9 +1,9 @@
 # Apple host instructions
 
 ## For the agent
-Select `ourapps-ae/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.
+Select `clodhub/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.
 
-- Select package `ourapps-ae/apple-host` version `0.11.0`.
+- Select package `clodhub/apple-host` version `0.12.0`.
 - Settings to configure:
   - `bundleIdentifier` (string, qualified; required)
   - `displayName` (string, label; required)
@@ -25,4 +25,4 @@ From the component directory:
 - `node --test tests/render.test.ts` (render, required-local; tools: node 26.5)
 - `python3 tests/native.py apple` (apple, platform; tools: python3 3.12, swiftc 6.4, xcrun 72)
 - `python3 tests/native.py project` (project, platform; tools: python3 3.12, node 26.5, xcodegen 2.46)
-- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch ourapps-ae/apple-host@VERSION --store STORE --from https://ourapps.app` and runs its suites.
+- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch clodhub/apple-host@VERSION --store STORE --from https://clodhub.com` and runs its suites.
