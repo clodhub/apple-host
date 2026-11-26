@@ -7,19 +7,19 @@
   "focus": "component",
   "definitions": [
     {
-      "id": "clodhub.apple-host",
+      "id": "com.clodhub.apple-host",
       "name": "Apple host",
       "kind": "component",
       "status": "example",
-      "package": "clodhub/apple-host",
-      "version": "0.12.0",
+      "package": "pkg:clod/com.clodhub/apple-host",
+      "version": "0.13.0",
       "ports": [
         {
           "id": "theme",
           "name": "Theme",
           "direction": "input",
           "kind": "interface",
-          "type": "ae/theme",
+          "type": "com.clodhub/theme",
           "version": "1.0.0",
           "required": true,
           "cardinality": "one"
@@ -29,7 +29,7 @@
           "name": "Apple shell",
           "direction": "output",
           "kind": "interface",
-          "type": "ae/apple-shell",
+          "type": "com.clodhub/apple-shell",
           "version": "1.0.0"
         }
       ],
@@ -85,7 +85,7 @@
           "name": "Apple shell",
           "direction": "input",
           "kind": "interface",
-          "type": "ae/apple-shell",
+          "type": "com.clodhub/apple-shell",
           "version": "1.0.0",
           "required": true,
           "cardinality": "one"
@@ -95,7 +95,7 @@
           "name": "Theme",
           "direction": "output",
           "kind": "interface",
-          "type": "ae/theme",
+          "type": "com.clodhub/theme",
           "version": "1.0.0"
         }
       ],
@@ -106,7 +106,7 @@
     {
       "id": "component",
       "name": "Apple host",
-      "definition": "clodhub.apple-host",
+      "definition": "com.clodhub.apple-host",
       "configuration": {
         "bundleIdentifier": "example",
         "displayName": "example",

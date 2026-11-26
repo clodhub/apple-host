@@ -1,6 +1,7 @@
 {
   "name": "apple-host",
-  "version": "0.12.0",
+  "version": "0.13.0",
+  "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
   "title": "Apple host",
   "description": "One SwiftUI application for iPhone, iPad, Mac (Catalyst) and Apple TV: shared window and platform differences in Swift, and the XcodeGen project, Info.plist and export options rendered from typed settings.",
   "facilities": [
@@ -12,7 +13,7 @@
   "provides": [
     {
       "id": "apple-shell",
-      "type": "ae/apple-shell",
+      "type": "com.clodhub/apple-shell",
       "version": "1.0.0",
       "path": "interfaces/apple-shell.json"
     }
@@ -20,7 +21,7 @@
   "requires": [
     {
       "id": "theme",
-      "type": "ae/theme",
+      "type": "com.clodhub/theme",
       "version": "1.0.0",
       "path": "interfaces/required-theme.json"
     }
@@ -134,18 +135,18 @@
     "scenarios": "iPhone and iPad share one target and run portrait or all orientations; Mac runs the same target as Mac Catalyst with the sandbox entitlements and an upright board; Apple TV is a second target with focus navigation, the remote Menu button as exit command and no corner help control.",
     "updates": "Patch updates replace the owned files; regenerate the project after each update. Removal deletes the owned sources and the generated project folder entries; the application's own sources are untouched. No application data is held."
   },
-  "agentInstructions": "Select `clodhub/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
+  "agentInstructions": "Select `pkg:clod/com.clodhub/apple-host` when the recipe's targets include any of ios, macos or tvos. Set `targets` to the recipe's client target list (`$answer` of the targets question, for example `web ios android macos windows tvos`); the component keeps the Apple ones (ios gives iPhone and iPad, macos gives Mac, tvos gives Apple TV) and ignores the rest. Connect the `theme` requirement so the application can pass its accent colour to `ShellConfiguration`. Set `bundleIdentifier`, `displayName`, `scheme` and optionally `deploymentTargets`.",
   "developerInstructions": "Supply an Apple developer team and App Store Connect access by reference to the release pipeline, not to this component. Provide the application icon catalogue and Apple TV images (the component ships only the catalogue structure), the application's Swift sources and its Localizable resources. Run the render step, then `xcodegen generate`, then build with Xcode. To check, run the commands below; opening the generated project in Xcode is the real test.",
   "classes": [
     {
       "reference": {
-        "name": "clodhub/apple-host-class",
+        "name": "pkg:clod/com.clodhub/apple-host-class",
         "version": "1.1.0",
-        "digest": "b94a15c06a6e30975f3afb94fd81af662fc5d61b62845faf8f9b89c3a2cd8a97"
+        "digest": "b0640a01993d7d1b40c84ee8ed25245b213bc79e8904c47bd254b7bcf1267490"
       },
       "descriptor": {
-        "format": 2,
-        "name": "clodhub/apple-host-class",
+        "format": 3,
+        "name": "pkg:clod/com.clodhub/apple-host-class",
         "version": "1.1.0",
         "title": "Apple host",
         "summary": "An Xcode project for iPhone, iPad, Mac and Apple TV rendered from the application's files",
@@ -153,7 +154,7 @@
         "presentation": "none",
         "provides": [
           {
-            "type": "ae/apple-shell",
+            "type": "com.clodhub/apple-shell",
             "version": "1.0.0",
             "path": "classes/apple-host-class/apple-shell.json",
             "modules": {
@@ -174,7 +175,7 @@
         ],
         "requires": [
           {
-            "type": "ae/theme",
+            "type": "com.clodhub/theme",
             "version": "1.0.0"
           }
         ],
@@ -209,7 +210,7 @@
         "inventory": [
           {
             "path": "classes/apple-host-class/apple-shell.json",
-            "digest": "5096cd921d47558c170c0cf0febcafaf1ec913bb4bf576e394600a04d6ab6d41"
+            "digest": "ae9bd91806efb3d9bab8cd2383c3dda0f198aa0a697343c2e8d4a291636cfa07"
           },
           {
             "path": "classes/apple-host-class/check.mjs",
@@ -217,7 +218,7 @@
           },
           {
             "path": "classes/apple-host-class/runtime.mjs",
-            "digest": "7440f3891614c423f74668cb5a2445fea58bbfa4d7c740c8e8a855d1d9300d43"
+            "digest": "1d85f0dae92d5c6c859cd48a4211a933718ae3e168554a2b00806183c4b661f0"
           }
         ],
         "verification": [
@@ -249,9 +250,9 @@
   ],
   "implements": [
     {
-      "name": "clodhub/apple-host-class",
+      "name": "pkg:clod/com.clodhub/apple-host-class",
       "version": "1.1.0",
-      "digest": "b94a15c06a6e30975f3afb94fd81af662fc5d61b62845faf8f9b89c3a2cd8a97"
+      "digest": "b0640a01993d7d1b40c84ee8ed25245b213bc79e8904c47bd254b7bcf1267490"
     }
   ],
   "upstream": [],

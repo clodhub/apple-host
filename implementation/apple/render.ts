@@ -46,7 +46,7 @@ type PlatformName = (typeof PLATFORMS)[number];
 const DEFAULT_DEPLOYMENT: Record<PlatformName, string> = { ios: "17.0", tvos: "17.0", macos: "14.0" };
 const SERVER_ADDRESS_KEY = "ShellServerAddress";
 
-// The same grammars aepm applies to collected string settings.
+// The same grammars clod applies to collected string settings.
 const QUALIFIED = /^[a-z][a-z0-9]*(\.[a-z][a-z0-9]*)+$/;
 const IDENTIFIER = /^[A-Za-z][A-Za-z0-9_]{0,63}$/;
 const LABEL = /^[A-Za-z][A-Za-z0-9 -]{0,63}$/;
